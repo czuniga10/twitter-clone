@@ -12,14 +12,14 @@ import typeDefs from './graphql/schema';
 import resolvers from './graphql/resolvers';
 import mocks from './mocks';
 
-const app = express(); // create an instance of express
+const app = express();
 
 const schema = makeExecutableSchema({
   typeDefs,
   resolvers,
 });
 
-app.use(bodyParser.json()); // add body-parser as the json parser middleware
+app.use(bodyParser.json());
 
 app.use(
   '/graphiql',
@@ -42,7 +42,7 @@ mocks().then(() => {
     if (err) {
       console.error(err);
     } else {
-      console.log(`App listen on port: ${constants.PORT}`);
+      console.log(`App listen to port: ${constants.PORT}`);
     }
   });
 });
