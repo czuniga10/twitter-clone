@@ -1,18 +1,20 @@
-
 import mongoose, { Schema } from 'mongoose';
 import { hashSync, compareSync } from 'bcrypt-nodejs';
 
-const UserSchema = new Schema({
-  username: {
-    type: String,
-    unique: true
+const UserSchema = new Schema(
+  {
+    username: {
+      type: String,
+      unique: true,
+    },
+    firstName: String,
+    lastName: String,
+    avatar: String,
+    password: String,
+    email: String,
   },
-  firstName: String,
-  lastName: String,
-  avatar: String,
-  password: String,
-  email: String
-}, { timestamps: true });
+  { timestamps: true },
+);
 
 UserSchema.pre('save', function(next) {
   if (this.isModified('password')) {
@@ -29,7 +31,7 @@ UserSchema.methods = {
   },
   authenticateUser(password) {
     return compareSync(password, this.password);
-  }
-}
+  },
+};
 
 export default mongoose.model('User', UserSchema);

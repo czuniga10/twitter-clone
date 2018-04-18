@@ -1,4 +1,3 @@
-
 import faker from 'faker';
 
 import Tweet from '../models/Tweet';
@@ -18,4 +17,3 @@ export default async () => {
     throw error;
   }
 };
-

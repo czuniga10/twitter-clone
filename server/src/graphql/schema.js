@@ -1,4 +1,3 @@
-
 export default `
 scalar Date
 type Status {
